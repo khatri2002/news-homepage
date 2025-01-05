@@ -178,8 +178,10 @@ $sm: 640px;
         }
       }
 
-      &:nth-of-type(1) {
-        @apply mt-8 sm:mt-0;
+      @media (width < $sm) {
+        &:nth-of-type(1) {
+          @apply mt-8;
+        }
       }
     }
     // bottom-section ends
