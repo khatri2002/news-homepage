@@ -1,0 +1,187 @@
+// breakpoints for custom styles
+$sm: 640px;
+
+.main {
+  @apply min-h-screen bg-off-white px-5 py-5 font-inter sm:px-12 sm:py-10 md:px-16 lg:px-24 lg:py-12 xl:px-44 xl:py-14;
+
+  .nav {
+    @apply sticky top-0 z-50 flex items-center justify-between bg-off-white py-4 sm:static sm:py-0;
+
+    .backdrop {
+      @apply invisible fixed left-0 top-0 h-screen w-screen bg-black/30 opacity-0 transition duration-300;
+    }
+
+    .logo {
+      @apply w-11 sm:w-auto;
+    }
+
+    .menuBtn {
+      @apply block focus:bg-soft-red/30 sm:hidden;
+    }
+
+    .content {
+      @apply invisible fixed right-0 top-0 z-50 h-screen w-0 overflow-hidden bg-off-white opacity-0 transition-all duration-300 sm:visible sm:static sm:h-auto sm:w-auto sm:bg-transparent sm:px-0 sm:pt-0 sm:opacity-100;
+
+      .closeBtn {
+        @apply float-right block focus:bg-soft-red/30 sm:hidden;
+      }
+
+      .navItems {
+        @apply mt-24 flex flex-col gap-x-6 gap-y-6 sm:mt-0 sm:flex-row sm:items-center md:gap-x-8;
+
+        .item a {
+          @apply font-medium text-dark-grayish-blue transition duration-300 hover:text-soft-red sm:text-sm sm:font-normal;
+        }
+      }
+    }
+
+    &.show {
+      .backdrop {
+        @apply visible opacity-100;
+      }
+
+      .content {
+        @apply visible px-7 pt-8 opacity-100;
+        width: 70%;
+      }
+    }
+  }
+
+  .newsSection {
+    @apply mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-4 lg:gap-6 xl:gap-7;
+
+    // hero-section starts
+    .heroImgDesktop {
+      @apply col-span-2 hidden h-full object-cover sm:block lg:h-auto;
+    }
+
+    .heroImgMobile {
+      @apply sm:hidden;
+    }
+
+    .heroTitle {
+      @apply row-start-2 text-4xl font-bold text-very-dark-blue lg:text-5xl xl:text-6xl;
+    }
+
+    .subHeroContainer {
+      @apply row-start-3 sm:row-start-2;
+
+      h2 {
+        @apply mb-6 text-sm text-dark-grayish-blue lg:mb-8 lg:text-base xl:mb-12;
+      }
+
+      button {
+        @apply relative overflow-hidden bg-soft-red px-8 py-2 text-xs font-bold uppercase transition duration-300 lg:px-10 lg:py-3 lg:text-sm;
+        letter-spacing: 2.5px;
+
+        span {
+          @apply relative;
+        }
+
+        &:before {
+          content: "";
+          @apply absolute bottom-full left-0 h-full w-full bg-very-dark-blue transition-all duration-300;
+        }
+
+        &:hover {
+          @apply text-white;
+
+          &:before {
+            @apply bottom-0;
+          }
+        }
+      }
+    }
+    // hero-section ends
+
+    // new-section starts
+    .newSection {
+      @apply row-span-2 mt-8 flex flex-col bg-very-dark-blue px-4 py-4 sm:col-span-2 sm:mt-0 md:col-span-1 xl:px-5 xl:py-6;
+
+      .header {
+        @apply text-2xl font-semibold text-soft-orange sm:text-4xl;
+      }
+
+      .itemsContainer {
+        @apply mt-4 flex h-full flex-col justify-between gap-4 lg:mt-5 xl:mt-7;
+
+        .item {
+          @apply contents;
+
+          .content {
+            .title {
+              @apply block text-base font-bold text-white transition duration-300 xl:text-lg;
+            }
+
+            .desc {
+              @apply mt-2 block text-xs text-grayish-blue lg:text-sm;
+            }
+
+            &:hover {
+              .title {
+                @apply text-soft-orange;
+              }
+            }
+          }
+
+          hr {
+            @apply opacity-40;
+          }
+
+          &:last-child {
+            hr {
+              @apply hidden;
+            }
+          }
+        }
+      }
+    }
+    // new-section ends
+
+    // bottom-section starts
+    .bottomCard {
+      @apply flex gap-x-3 sm:mt-5 lg:mt-8 lg:gap-x-4 xl:gap-x-6;
+
+      .imgWrapper {
+        @apply overflow-hidden;
+        width: 30%;
+
+        img {
+          @apply h-full w-full object-cover transition-all duration-300;
+        }
+      }
+
+      .content {
+        @apply flex flex-col justify-between;
+        width: 70%;
+
+        .number {
+          @apply block text-2xl font-bold text-soft-red lg:text-3xl;
+        }
+
+        .title {
+          @apply block text-sm font-bold text-very-dark-blue transition duration-300 lg:text-base;
+        }
+
+        .desc {
+          @apply block text-xs text-dark-grayish-blue lg:text-sm;
+        }
+      }
+
+      &:hover {
+        .imgWrapper img {
+          @apply scale-125;
+        }
+
+        .content .title {
+          @apply text-soft-red;
+        }
+      }
+
+      &:nth-of-type(1) {
+        @apply mt-8 sm:mt-0;
+      }
+    }
+    // bottom-section ends
+  }
+}
